@@ -2,7 +2,9 @@
 title: "PA1_template.Rmd"
 author: "Sterling E. Braun"
 date: "6/29/2018"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 
@@ -85,7 +87,7 @@ inta$steps <- unlist(inta$steps) ##Unlist steps so that it is class numeric
 ```
 
 ##Plotting histogram of steps with mean, median included:
-```{r steps, echo=TRUE}
+```{r evtf, echo=TRUE, fig.width = 7, fig.height = 5}
 ggplot(data = tsteps, aes(x = steps)) + geom_histogram(bins = 5) + labs(x = "Steps Per Day")+ 
         ggtitle("Steps per Day") + geom_vline(xintercept = meansteps, color = "blue") + 
         geom_vline(xintercept = mediansteps) + 
@@ -107,3 +109,4 @@ qplot(data = inta, x = as.numeric(interval), y = steps, facets = .~Day,
       geom = 'line', fill = Day, color = Day, xlab = "5-minute Intervals", 
       ylab = "Average Steps", main = "Average Steps per Interval on Weekdays and Weekends")
 ```
+
